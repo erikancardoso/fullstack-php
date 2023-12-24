@@ -33,7 +33,41 @@ echo call_user_func('segundoTeste','wesley');
 echo ''. PHP_EOL;
 
 /***************************************************************************************************************************************************/
+//acessando um callback por meio de uma classe
+echo 'Exemplo acessando class com callback'. PHP_EOL;
 
+class Aluno
+{
+    public function turma($nomeAluno, $periodo)
+    {
+        return 'A aluna '.$nomeAluno . ' faz o ' . $periodo;
+    }
+}
+
+// para acessar uma classe preciso primeiro criar um objeto
+$aluno = new Aluno;
+
+//como o callback aceia apenas string preciso acesar através de array
+echo call_user_func([$aluno, 'turma'],'Erika', 1);
+ //lembrando que se estiver usando o metodo de static não precisa instanciar a sua classe
+
+ echo ''. PHP_EOL;
+
+ class Professor
+ {
+     public static function classe($nomeProfessor, $ano)
+     {
+         return 'A professor '.$nomeProfessor . ' ensina na classe ' . $ano;
+     }
+ }
+ echo call_user_func(['Professor', 'classe'], 'joao', 5);
+
+
+
+echo ''. PHP_EOL;
+
+
+/***************************************************************************************************************************************************/
 
 /*serve para customizar o comportamento da função receptora, é mais viável criar uma callback como função anonima para evitar sobrecarga no arquivo php*/
 //- a função array_map(), mapeia a função de callback para cada elemento de array
@@ -65,3 +99,5 @@ usort($people, function($personA, $personB) {
 });
 
 print_r($people);
+
+
