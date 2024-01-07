@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Force Download Example</title>
+</head>
+<body>
+    <form action="action.php" method="post">
+        <label for="name">Your name:</label>
+        <input name="name" id="name" type="text" >
+    
+        <label for="age">Your age:</label>
+        <input name="age" id="age" type="number">
+    
+        <button type="submit" id="downloadLink" itemprop="url" href="#" onclick="downloadFile()" class="qbutton medium default">Submit</button>
+    </form>
+    <script>
+        function downloadFile() {
+            var downloadLink = document.getElementById('downloadLink');
+            var fileUrl = 'http://webuyandselltimeshares.vin3dev.wpengine.com/wp-content/uploads/sites/10/2024/01/example-2.pdf';
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'your_api_endpoint', true); // Change 'your_api_endpoint' to your actual API endpoint
+            xhr.setRequestHeader('Content-Type', 'application/json');
+    
+            // You can set your POST data here if needed
+            var postData = {
+                key: 'value'
+            };
+    
+            xhr.responseType = 'json';
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = xhr.response;
+    
+                    // Example: Display the response after a delay of 2 seconds
+                    setTimeout(function () {
+                        alert('Response: ' + JSON.stringify(response));
+                    }, 20000);
+                } else {
+                    alert('Error: ' + xhr.statusText);
+                }
+            };
+    
+            xhr.onerror = function () {
+                alert('Network Error');
+            };
+    
+            // Send the POST request with the data
+            xhr.send(JSON.stringify(postData));
+        }
+    </script>
+
+</body>
+</html>
+
+
+</body>
+</html>

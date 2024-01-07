@@ -1,6 +1,7 @@
-Hi <?php echo htmlspecialchars($_POST['name']); ?>.
-You are <?php echo (int)$_POST['age']; ?> years old.
-<?php 
+<?php
+
+$a = " hi " . htmlspecialchars($_POST['name']) . PHP_EOL;
+$b =" you are ". (int)$_POST['age'] . " old years";
 
 
-?>
+echo $a . $b;

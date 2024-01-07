@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Example</title>
+</head>
+<body>
+
+<?php
+    // Verifica se o parâmetro "mostrar_popup" está presente na URL
+    if (isset($_GET['mostrar_popup']) && $_GET['mostrar_popup'] == 1) {
+        echo '<script>alert("Este é um popup simples!");</script>';
+    }
+?>
+
+<!-- Botão para acionar o popup -->
+<a href="?mostrar_popup=1">Abrir Popup</a>
+
+</body>
+</html>
